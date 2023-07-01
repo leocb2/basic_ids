@@ -24,10 +24,16 @@ class MonitorTraffic:
         self.logger.info(f"Packet registered. Total packets: {len(self.packets)}")
 
     def _get_packets_size_mean(self):
-        return statistics.mean([len(p) for p in self.packets])
+        if len(self.packets) >= 1:
+            return statistics.mean([len(p) for p in self.packets])
+        else:
+            return 0
     
     def _get_packets_size_std(self):
-        return statistics.stdev([len(p) for p in self.packets])
+        if len(self.packets) >= 2:
+            return statistics.stdev([len(p) for p in self.packets])
+        else:
+            return 0
 
     def monitor_packets_size(self,packet):
         self._register_packet(packet)

@@ -23,7 +23,7 @@ if __name__ == "__main__":
             # time.sleep(5)
 
     # Start sniffing packets and monitoring in parallel
-    monitor = MonitorTraffic()
+    monitor = MonitorTraffic(sniff_interval,packet_size_std_threshold)
     
     logging.info(f"Going to run parallel jobs")
 
