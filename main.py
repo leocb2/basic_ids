@@ -29,6 +29,5 @@ if __name__ == "__main__":
 
     while True:
         sniff(iface=interface,prn=monitor.monitor_packets_size, store=0)
-        print("lol")
 
     # Parallel(n_jobs=2)([delayed(sniff_packets)(), delayed(monitor_packets)()])
