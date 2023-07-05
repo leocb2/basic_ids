@@ -7,7 +7,8 @@ if __name__ == "__main__":
 
     sniff_interval = 5
     packet_size_std_threshold = 5
-    interface = "wlp2s0"
+    interface = "eth0"
+    #interface = "wlo1"
     log_file = "app_log.log"
 
     # Configure the root logger
@@ -20,7 +21,7 @@ if __name__ == "__main__":
         while True:  # Run indefinitely
             logging.info(f"Running func")
             monitor.monitor_packets_size(sniff_time=sniff_interval, threshold=packet_size_std_threshold)
-            # time.sleep(5)
+            time.sleep(sniff_interval-1)
 
     # Start sniffing packets and monitoring in parallel
     monitor = MonitorTraffic(sniff_interval,packet_size_std_threshold)
